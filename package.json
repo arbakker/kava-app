@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html && cp images/* dist/",
-    "build": "parcel build --public-url . index.html && cp images/* dist/"
+    "build": "rm -f dist/* && parcel build --public-url . index.html && cp images/* dist/"
   },
   "author": "",
   "license": "ISC",

@@ -198,6 +198,7 @@ getJSON().then(function (data) {
     const val = e.target.value
     if (val === '') {
       resetFilter(data)
+      showApo(data)
     }
   }
 
@@ -215,7 +216,6 @@ getJSON().then(function (data) {
       }
       const suggestions = []
       filteredItems = []
-      console.log(searchResult)
       searchResult.forEach(function (item) {
         suggestions.push({ label: item.item.NAAM, value: item.item.OBJECTID, straat: item.item.STRAAT, huisnr: item.item.HUISNR, postcode: item.item.POSTCODE, district: item.item.DISTRICT.capitalize() })
         filteredItems.push(item.item.OBJECTID)
