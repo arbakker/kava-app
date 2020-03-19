@@ -1,5 +1,5 @@
 @import url('./node_modules/leaflet/dist/leaflet.css');
-
+@import url('./loader.css');
 @font-face {
     font-family: "Roboto Condensed";
     src: url("./fonts/Roboto-Bold.ttf");
@@ -7,70 +7,94 @@
     src: url("./fonts/Roboto-Regular.ttf");
 }
 
+
 * {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 :root {
---a: 30em;
+    --a: 30em;
 }
 
 #mapid {
-    width:100vw;
+    width: 100vw;
     height: 100vh;
     /* Fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
 }
 
 #mapid {
-    width:calc(100vw - var(--a));
+    width: calc(100vw - var(--a));
     height: 100vh;
     /* Fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
 }
-#sidebar{
+
+#sidebar {
     width: var(--a);
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
-    /* padding: 0.5em; */
     overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-#sidebarHeader{
-    height: 20vh;
+#sidebarHeader {
     padding-right: 1em;
 }
 
-#apoList{
-    height:80vh;
-    overflow-y: scroll;
+#separator {
+    height: 1px;
+    width: 90%;
+    /* or 100px */
+    border-bottom: 1px solid rgb(211, 213, 224);
+    margin: auto
 }
 
-.container{
+#apoList {
+    overflow-y: auto;
+}
+
+.container {
     padding: 0.5em;
 }
-.radio{
-    padding-top:0.5em;
-    padding-bottom:0.5em;
+
+.radio {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
-#search{
+#search {
+    /* margin: auto; */
     width:100%;
     margin-bottom: 0.5em;
+    height: 2em;
+    font-size: 1.25em;
+        
 }
 
-.apoListItem{
+.hide {
+    display: none;
+}
+
+#search [placeholder] {
+    line-height: 2em;
+    font-size:1.25em;
+}
+
+.apoListItem {
     padding-left: 0.5em;
     padding-top: 0.1em;
     padding-bottom: 0.1em;
 }
 
-.apoListItem:hover{
-    background-color: rgb(255, 249, 196);
+.apoListItem:hover {
+    background-color: rgba(119, 119, 119, 0.219);
 }
 
-.apoListItem.selected{
-    background-color: rgb(226, 226, 226);
+.apoListItem.selected {
+    background-color: rgba(208, 64, 88, 0.219);
+    
 }
 
 body {
@@ -78,14 +102,39 @@ body {
 }
 
 .leaflet-layer.dark {
-    -webkit-filter: grayscale(80%)  ;
-    -ms-filter: grayscale(80%) ;
-    -o-filter: grayscale(80%) ;
-    -moz-filter: grayscale(80%) ;
-    filter:grayscale(80%);
+    -webkit-filter: grayscale(60%);
+    -ms-filter: grayscale(60%);
+    -o-filter: grayscale(60%);
+    -moz-filter: grayscale(60%);
+    filter: grayscale(60%);
 }
 
 .flexcontainer {
     display: flex;
     flex-direction: row;
- }
+}
+
+.autocomplete {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .full {
+        display: none;
+    }
+    .flexcontainer {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #sidebar {
+        height: 40vh;
+        width: 100vw;
+    }
+    #mapid {
+        height: 60vh;
+        width: 100vw;
+    }
+}
+
+
+
