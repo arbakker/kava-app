@@ -1,0 +1,91 @@
+@import url('./node_modules/leaflet/dist/leaflet.css');
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url("./fonts/Roboto-Bold.ttf");
+    src: url("./fonts/Roboto-Italic.ttf");
+    src: url("./fonts/Roboto-Regular.ttf");
+}
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+:root {
+--a: 30em;
+}
+
+#mapid {
+    width:100vw;
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+#mapid {
+    width:calc(100vw - var(--a));
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+}
+#sidebar{
+    width: var(--a);
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    /* padding: 0.5em; */
+    overflow-y: hidden;
+}
+
+#sidebarHeader{
+    height: 20vh;
+    padding-right: 1em;
+}
+
+#apoList{
+    height:80vh;
+    overflow-y: scroll;
+}
+
+.container{
+    padding: 0.5em;
+}
+.radio{
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+
+#search{
+    width:100%;
+    margin-bottom: 0.5em;
+}
+
+.apoListItem{
+    padding-left: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+.apoListItem:hover{
+    background-color: rgb(255, 249, 196);
+}
+
+.apoListItem.selected{
+    background-color: rgb(226, 226, 226);
+}
+
+body {
+    margin: 0px;
+}
+
+.leaflet-layer.dark {
+    -webkit-filter: grayscale(80%)  ;
+    -ms-filter: grayscale(80%) ;
+    -o-filter: grayscale(80%) ;
+    -moz-filter: grayscale(80%) ;
+    filter:grayscale(80%);
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: row;
+ }
