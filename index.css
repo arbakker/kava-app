@@ -101,7 +101,7 @@ body {
     margin: 0px;
 }
 
-.leaflet-layer.dark {
+.leaflet-layer.gray {
     -webkit-filter: grayscale(60%);
     -ms-filter: grayscale(60%);
     -o-filter: grayscale(60%);

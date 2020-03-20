@@ -87,7 +87,7 @@ function fitbounds (id = '') {
   } else {
     bounds = apothekersLayer.getBounds()
   }
-  map.fitBounds(bounds)
+  map.fitBounds(bounds, { maxZoom: 16 })
 }
 
 function getJSON () {
@@ -111,13 +111,11 @@ function getJSON () {
     })
 }
 
-var southWest = L.latLng(50.964591, 4.038897)
-var northEast = L.latLng(51.493328, 4.790175)
-var bounds = L.latLngBounds(southWest, northEast)
+// var southWest = L.latLng(50.964591, 4.038897)
+// var northEast = L.latLng(51.493328, 4.790175)
+// var bounds = L.latLngBounds(southWest, northEast)
 
-var map = L.map('mapid', {
-  maxBounds: bounds
-}).setView([51.222791, 4.409208], 10)
+var map = L.map('mapid')
 var filteredItems = []
 var selectedItem = ''
 var apothekersLayer
@@ -178,14 +176,6 @@ getJSON().then(function (data) {
   })
   map.addLayer(apothekersLayer)
 
-  Array.prototype.forEach.call(document.getElementsByClassName('leaflet-layer'), function (el) {
-    el.classList.add('dark')
-  })
-  document.body.classList.add('dark')
-  Array.prototype.forEach.call(document.getElementsByClassName('leaflet-container'), function (el) {
-    el.classList.add('dark')
-  })
-
   document.getElementsByClassName('apoListItem')
   Array.prototype.forEach.call(document.getElementsByClassName('apoListItem'), function (el) {
     el.onclick = function () {
@@ -237,6 +227,13 @@ getJSON().then(function (data) {
   })
   resetFilter(data)
   fitbounds()
+  Array.prototype.forEach.call(document.getElementsByClassName('leaflet-layer'), function (el) {
+    el.classList.add('gray')
+  })
+  document.body.classList.add('gray')
+  Array.prototype.forEach.call(document.getElementsByClassName('leaflet-container'), function (el) {
+    el.classList.add('gray')
+  })
 })
 
 function addResult (id, name, straat, postcode, huisnr, district, data) {
