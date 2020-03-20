@@ -87,7 +87,7 @@ function fitbounds (id = '') {
   } else {
     bounds = apothekersLayer.getBounds()
   }
-  map.fitBounds(bounds, { maxZoom: 16 })
+  map.fitBounds(bounds)
 }
 
 function getJSON () {
